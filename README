@@ -1,0 +1,73 @@
+adi.bamberger
+
+
+=============================
+=      File description     =
+=============================
+SpaceShip.java - Holds the base for all other spaceships- it is an abstract class. It implements all of the
+    methods that a ship needs for a game to run, and manages what is done in the game using flags.
+SpaceShipFactory.java - The factory of the game, which creates the ships as asked. It gets an array with
+    letters, that stand for the wanted ships, and creates an array with those ships in.
+AggressiveShip.java - This ship pursues other ships and tries to fire at them. It always accelerates and turns
+    towards the nearest ship. When its angle to the nearest ship is less than the limit it holds, it will try
+    to fire.
+BasherShip.java - This ship attempts to collide with other ships. It always accelerates, and constantly turns
+    towards the closest ship. If it gets within a distance of it's limit from another ship, it will attempt to
+    turn on its shields.
+DrunkardShip.java - When this spaceship collides another ship- it dies. When it is away of other ships it
+    fires. It randomly accelerates, and every time it dies, it changes from chasing other ships to running
+    away from them them.
+HumanShip.java - The class that represents the human-controlled ship. It is controlled by the user, by
+    clicking on the keyboard.
+SpeicalShip.java - This spaceship is interesting to fight against. It always attempt to teleport if it can do
+    so. It can always shoot, no matter what its energy level is or when it last fired. It fires when the
+    closest ship is closer than the fire distance it holds. It also chases the closest ship.
+RunnerShip.java - This spaceship attempts to run away from the fight. It always accelerates, and constantly
+    turns away from the closest ship. If the nearest ship is closer than the limit it holds, and if its angle
+    to the Runner is less the angle limit, it will attempt to teleport.
+
+=============================
+=          Design           =
+=============================
+In my design, I used an abstract class. I also used composition (every ship has a physics instance).
+I uses many constants, so the code could change without any problem.
+I uses flags so the code would be simple and not repetitive. Each type of spaceship changes the flags that
+stands for what it wands and doesn't want at this round, according to its wish.
+I considered tha fact that all ships are similar, but have simple changes from one another. The order of
+actions is also the same, but the exact actions that happen changes from ship to ship and from turn to turn.
+
+My design's advantages and disadvantages in terms of:
+Extensibility - There is ability to add new functionality or features, in each of the ships differently or in
+all of them together at the SpaceShip abstract class.
+Modularity - The program is modular because each ship calls and uses the actions done in the SpaceShip. Every
+part, both in the spaceShip and in all ships, is divided into smaller methods that do their only job.
+Intuitiveness and understandability - The program is easy to understand, because all of its components are
+simple. The fact that I used flags to note the ships wishes to do or not to do something, makes the methods
+more intuitive.
+Representation of the classes and their relationships - We have a class of SpaceShip, which implements all
+of it's public functions. All of the other spaceships inherit from it. Mostly, they use the SpaceShip
+function, and when needed they change or add to them.
+
+=============================
+=  Implementation details   =
+=============================
+The big decision in my implementation was to work with flags that every ship changes in order to tell the
+controlling function what to do. It made the code simple and understandable.
+
+The behavior of the drunkard ship: This ship is drunk, meaning its behavior isn't clear to other ships. It
+doesn't think well, so when it is away from other ship- it fires. Its acceleration is decided randomly. This
+spaceship dies normally, but also when it collides other ships. It is chasing other ships or running away from
+them- this changes every time it dies.
+
+The behavior of the special ship: This spaceship is interesting to fight against. Iit is not unbeatable-
+because then fighting against it would be boring. So it is just a very strong ship. It can fire no matter what
+its energy level is, and doesn't have to wait between one shot to another. It also doesn't cost it energy to
+fire. It will always chase the closest ship, and when it is closer than the fire distance it holds, the
+special ship will fire. Every one of it's shoots is one shot forwards and one in a new randomized place. It
+always attempt to teleport if it can do so.
+
+=============================
+=    Answers to questions   =
+=============================
+There were no questions.
+
